@@ -1,8 +1,8 @@
 title: 基于Koa和co使用node编写cgi
 date: 2015-09-10 20:50
-cover_index: /img/KoaForCgi-1.png
-cover_detail: /img/KoaForCgi-1.png
-tags:
+cover_index: /img/KoaForCgi-cover_index.png
+cover_detail: /img/KoaForCgi-cover_detail.png
+tags: koa
 comments: true
 ---
 
@@ -257,8 +257,11 @@ function *post(next){
 
 app.listen(33010);
 console.log('listening on port 33010');
- sns_super_white_list
+```
 
+
+sns_super_white_list.js
+```
 /**
  * @fileOverview 超级白名单cgi
  * @version 1.0.0

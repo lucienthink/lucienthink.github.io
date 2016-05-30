@@ -1,6 +1,6 @@
 <div class="work">
     <a href="<%- config.root %><%- item.path %>">
-        <img src="<%- item.cover_index || theme.default_cover_index %>" class="media" alt=""/>
+        <img src="<%- item.cover_index || theme.default_cover_index %>" class="media" alt="" style="transform: rotate(<%- parseInt(Math.random() * 10) - 5 %>deg);"/>
         <div class="caption">
             <div class="work_title">
                 <h1><%- item.title || theme.default_post_title || "Untitled" %></h1>
