@@ -333,6 +333,8 @@ h5, h6          { font-weight: bolder }
 .main .work .media{
     width: 100%;
     vertical-align: middle;
+    transition: transform 2s;
+    -webkit-transition: -webkit-transform 1.5s;
 }
 
 .main .work .caption{

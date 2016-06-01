@@ -20,5 +20,11 @@
         dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments){ %>embed.js<% } else { %>count.js<% } %>';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
+
+    setTimeout(function () {
+        $('.main .work .media').each(function (i, item) {
+            $(item).css({'transform': 'rotate(' + (parseInt(Math.random() * 10) - 5) + 'deg)'});
+        })
+    }, 200)
 </script>
 <% } %>

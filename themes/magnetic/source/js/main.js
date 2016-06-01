@@ -71,7 +71,6 @@ $(document).ready(function(){
         tooltip.remove();
     });
 
-
 });
 
 
