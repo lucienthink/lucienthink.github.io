@@ -333,6 +333,8 @@ h5, h6          { font-weight: bolder }
 .main .work .media{
     width: 100%;
     vertical-align: middle;
+    transition: transform 2s;
+    -webkit-transition: -webkit-transform 1.5s;
 }
 
 .main .work .caption{
@@ -432,6 +434,7 @@ h5, h6          { font-weight: bolder }
     -moz-background-size: cover;
     -o-background-size: cover;
     background-position: 50% 50%;
+    background-repeat: no-repeat;
 }
 
 .work_nav{

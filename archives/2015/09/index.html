@@ -29,7 +29,7 @@
 
     <!-- Title -->
     
-    <title>Archiv: 2015/9 - Ready to Fly</title>
+    <title>Archives: 2015/9 - Ready to Fly</title>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/reset.css">
@@ -79,24 +79,18 @@
         <ul class="social clearfix">
             
             
-                <li><a href="https://www.facebook.com/" class="fb" target="_blank" data-title="Facebook"></a></li>
             
             
-                <li><a href="https://www.behance.net/" class="behance" target="_blank" data-title="Behance"></a></li>
-            
-            
-                <li><a href="https://plus.google.com/+Pixelhint/posts" class="google" target="_blank" data-title="Google+"></a></li>
-            
-            
-                <li><a href="https://dribbble.com/pixelhint" class="dribble" target="_blank" data-title="Dribble"></a></li>
             
             
         </ul><!-- end social -->
 
         <div class="rights">
-            <p>Copyright © 2014 magnetic.</p>
-            <p>Template by <a href="http://pixelhint.com/magnetic-free-html5-responsive-photography-website-template/">Pixelhint.com</a></p>
-            <p>Hexo Theme by <a href="http://www.codeblocq.com/">Jonathan K.</a></p>
+            <!--<p>Copyright © 2014 magnetic.</p>-->
+            <!--<p>Template by <a href="http://pixelhint.com/magnetic-free-html5-responsive-photography-website-template/">Pixelhint.com</a></p>-->
+            <!--<p>Hexo Theme by <a href="http://www.codeblocq.com/">Jonathan K.</a></p>-->
+            <p>http://lucienthink.github.io</p>
+            <p>The Blog Of Lucien</p>
         </div><!-- end rights -->
     </div ><!-- end footer -->
 </header><!-- end header -->
@@ -112,6 +106,10 @@
                 
                     <li>
     <a href="/2015/09/10/KoaForCgi/">基于Koa和co使用node编写cgi</a>
+</li>
+                
+                    <li>
+    <a href="/2016/05/30/RNlLearning-1/">React Native笔记-1</a>
 </li>
                 
             </ul>
@@ -145,6 +143,12 @@
         dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
+
+    setTimeout(function () {
+        $('.main .work .media').each(function (i, item) {
+            $(item).css({'transform': 'rotate(' + (parseInt(Math.random() * 10) - 5) + 'deg)'});
+        })
+    }, 200)
 </script>
 
 

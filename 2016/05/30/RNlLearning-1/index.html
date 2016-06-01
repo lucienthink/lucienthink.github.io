@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="环境依赖本文所写依赖mac环境123brew install node         // 建议5.0以上brew install watchman     // 监听文件更新brew install flow         // 类型检测,可不安装
+iOSXcode 7.x
+AndroidJD">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Lucien">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="React Native笔记-1"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Ready to Fly"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content="undefined"/>
+    
+
+    <!-- Title -->
+    
+    <title>React Native笔记-1 - Ready to Fly</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+<body>
+
+<!-- Menu -->
+<!-- Navigation -->
+<header>
+    <div class="logo">
+        <a href="/">Ready to Fly</a>
+    </div><!-- end logo -->
+
+    <div id="menu_icon"></div>
+    <nav>
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+            
+        </ul>
+    </nav><!-- end navigation menu -->
+
+    <div class="footer clearfix">
+        <ul class="social clearfix">
+            
+            
+            
+            
+            
+            
+        </ul><!-- end social -->
+
+        <div class="rights">
+            <!--<p>Copyright © 2014 magnetic.</p>-->
+            <!--<p>Template by <a href="http://pixelhint.com/magnetic-free-html5-responsive-photography-website-template/">Pixelhint.com</a></p>-->
+            <!--<p>Hexo Theme by <a href="http://www.codeblocq.com/">Jonathan K.</a></p>-->
+            <p>http://lucienthink.github.io</p>
+            <p>The Blog Of Lucien</p>
+        </div><!-- end rights -->
+    </div ><!-- end footer -->
+</header><!-- end header -->
+
+<!-- Main Content -->
+<section class="main clearfix">
+
+    <section class="top" style="background-image: url('/img/RNLearning-cover_detail.png');">
+        <div class="wrapper content_header clearfix">
+            
+
+<div class="work_nav">
+
+    <ul class="btn clearfix">
+        
+        <li><a class="previous disabled"></a></li>
+        
+        <li><a href="/" class="grid" data-title="Portfolio"></a></li>
+        
+        <li><a href="/2015/09/10/KoaForCgi/" class="next" data-title="基于Koa和co使用node编写c..."></a></li>
+        
+    </ul>
+
+</div><!-- end work_nav -->
+            <h1 class="title">React Native笔记-1</h1>
+        </div>
+    </section><!-- end top -->
+
+    <section class="wrapper">
+        <div class="content">
+
+            <!-- Gallery -->
+            
+
+            <!-- Content -->
+            <h1 id="环境依赖"><a href="#环境依赖" class="headerlink" title="环境依赖"></a>环境依赖</h1><p>本文所写依赖mac环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install node         // 建议5.0以上</span><br><span class="line">brew install watchman     // 监听文件更新</span><br><span class="line">brew install flow         // 类型检测,可不安装</span><br></pre></td></tr></table></figure></p>
+<h2 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h2><p>Xcode 7.x</p>
+<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">JDK</a></p>
+<p>Android SDK<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install android-sdk  // 安装 Android SDK</span><br><span class="line">sudo vi ~/.bashrc         // 编辑环境变量</span><br></pre></td></tr></table></figure></p>
+<p>.bashrc 文件写入以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export ANDROID_HOME=/usr/local/opt/android-sdk</span><br></pre></td></tr></table></figure></p>
+<p>终端输入 android , 打开后下载最新 tools, API, Lib</p>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli    // 安装react-native 命令</span><br><span class="line">react-native init beyondpenguin    // 初始化工程</span><br></pre></td></tr></table></figure>
+<p>创建完成后,大致目录结构如下图<br><img src="/img/RNLearning-1.png" alt="目录"></p>
+<p>index.ios.js 是 iOS 的入口文件<br>index.android.js 是 Android 的入口文件<br>index.web.js 是用了<a href="https://github.com/taobaofed/react-web" target="_blank" rel="external">react-web</a>后可以将react项目打包为H5页面<br>server.js 是我用来模拟fetch数据起的一个express服务文件</p>
+<p>我们的项目开发在 app 目录下</p>
+<p>在看 app 目录之前建议先学习 <a href="http://cn.redux.js.org/" target="_blank" rel="external">redux</a></p>
+<p>再来看看我们项目中都用到了哪些好用的组件,贴出我的 package.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;beyondpenguin&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.0.1&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;start&quot;: &quot;node node_modules/react-native/local-cli/cli.js start&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;i&quot;: &quot;^0.3.4&quot;,</span><br><span class="line">    &quot;react&quot;: &quot;^0.14.7&quot;,</span><br><span class="line">    &quot;react-dom&quot;: &quot;^0.14.7&quot;,</span><br><span class="line">    &quot;react-native&quot;: &quot;^0.22.2&quot;,</span><br><span class="line">    &quot;react-native-vector-icons&quot;: &quot;^2.0.2&quot;,</span><br><span class="line">    &quot;react-redux&quot;: &quot;^4.4.1&quot;,</span><br><span class="line">    &quot;react-web&quot;: &quot;^0.2.4&quot;,</span><br><span class="line">    &quot;redux&quot;: &quot;^3.3.1&quot;,</span><br><span class="line">    &quot;redux-thunk&quot;: &quot;^2.0.1&quot;,</span><br><span class="line">    &quot;rn-viewpager&quot;: &quot;^1.1.1&quot;,</span><br><span class="line">    &quot;rnpm&quot;: &quot;^1.5.3&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;babel&quot;: &quot;^6.5.2&quot;,</span><br><span class="line">    &quot;babel-core&quot;: &quot;5.8.19&quot;,</span><br><span class="line">    &quot;babel-loader&quot;: &quot;^5.1.3&quot;,</span><br><span class="line">    &quot;haste-resolver-webpack-plugin&quot;: &quot;^0.1.2&quot;,</span><br><span class="line">    &quot;json-loader&quot;: &quot;^0.5.2&quot;,</span><br><span class="line">    &quot;react-hot-loader&quot;: &quot;^1.2.7&quot;,</span><br><span class="line">    &quot;webpack&quot;: &quot;^1.12.10&quot;,</span><br><span class="line">    &quot;webpack-dev-server&quot;: &quot;^1.14.0&quot;,</span><br><span class="line">    &quot;webpack-html-plugin&quot;: &quot;^0.1.1&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>说下几个好用的:</p>
+<ul>
+<li><p><a href="https://github.com/oblador/react-native-vector-icons" target="_blank" rel="external">react-native-vector-icons</a>, 一个icon集合的库, 对于开发demo的我们来说, 非常好用</p>
+</li>
+<li><p><a href="https://github.com/gaearon/redux-thunk" target="_blank" rel="external">redux-thunk</a>, redux异步 action 的组件</p>
+</li>
+<li><p><a href="https://github.com/rnpm/rnpm" target="_blank" rel="external">rnpm</a>, React Native Package Manager</p>
+</li>
+<li><p>另推荐个发布 RN 组件的站, <a href="https://js.coach/" target="_blank" rel="external">js.coach</a>, 有很多第三方的组件, 帮助我们兼容iOS和Android组件的差异</p>
+</li>
+</ul>
+
+
+            <!-- Tags -->
+            
+
+
+<div class="tags">
+    <a href="/tags/React-Native/">React Native</a>
+</div>
+
+
+
+            <!-- Comments -->
+            <div>
+                
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+            </div>
+        </div><!-- end content -->
+    </section>
+</section><!-- end main -->
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="/js/jquery.js"></script>
+
+<!-- Custom Code -->
+<script src="/js/main.js"></script>
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'readytofly';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+
+    setTimeout(function () {
+        $('.main .work .media').each(function (i, item) {
+            $(item).css({'transform': 'rotate(' + (parseInt(Math.random() * 10) - 5) + 'deg)'});
+        })
+    }, 200)
+</script>
+
+
+</body>
+
+</html>
