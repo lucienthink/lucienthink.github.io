@@ -6,7 +6,8 @@
     "version": "3.2.0"
   },
   "scripts": {
-    "dev": "hexo d -w",
+    "start": "hexo server && hexo g -w",
+    "dev": "hexo g -w",
     "build": "hexo g -d",
     "server": "hexo server"
   },
