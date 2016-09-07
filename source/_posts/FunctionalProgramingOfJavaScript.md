@@ -3,7 +3,7 @@ date: 2016-09-01 04:20
 cover_index: /img/FunctionalProgramingOfJavaScript-cover_detail.png
 cover_detail: /img/FunctionalProgramingOfJavaScript-cover_detail.png
 tags: functional programing javascript
-comments: true
+comments: trues
 ---
 
 初次想去好好学一下函数式编程是有一次回西安，正好去听了[欧阳继超](https://github.com/jcouyang)的分享，被 monad 搞得云里雾里的，于是回来后准备好好的学习一下。
