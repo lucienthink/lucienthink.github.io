@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="初次想去好好学一下函数式编程是有一次回西安，正好去听了欧阳继超的分享，被 monad 搞得云里雾里的，于是回来后准备好好的学习一下。
+函数是一等公民
+函数可作为参数
+函数可作为返回值
+
+柯里化（curry）我们把一个多参的函数变成一次只能接受一个参数的函数的过程叫做柯里化。只传递给函数一部分参数来调">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Lucien">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="JavaScript函数式编程初窥"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Ready to Fly"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content="undefined"/>
+    
+
+    <!-- Title -->
+    
+    <title>JavaScript函数式编程初窥 - Ready to Fly</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+<body>
+
+<!-- Menu -->
+<!-- Navigation -->
+<header>
+    <div class="logo">
+        <a href="/">Ready to Fly</a>
+    </div><!-- end logo -->
+
+    <div id="menu_icon"></div>
+    <nav>
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+            
+        </ul>
+    </nav><!-- end navigation menu -->
+
+    <div class="footer clearfix">
+        <ul class="social clearfix">
+            
+            
+            
+            
+            
+            
+        </ul><!-- end social -->
+
+        <div class="rights">
+            <!--<p>Copyright © 2014 magnetic.</p>-->
+            <!--<p>Template by <a href="http://pixelhint.com/magnetic-free-html5-responsive-photography-website-template/">Pixelhint.com</a></p>-->
+            <!--<p>Hexo Theme by <a href="http://www.codeblocq.com/">Jonathan K.</a></p>-->
+            <p>http://lucienthink.github.io</p>
+            <p>The Blog Of Lucien</p>
+        </div><!-- end rights -->
+    </div ><!-- end footer -->
+</header><!-- end header -->
+
+<!-- Main Content -->
+<section class="main clearfix">
+
+    <section class="top" style="background-image: url('/img/FunctionalProgramingOfJavaScript-cover_detail.png');">
+        <div class="wrapper content_header clearfix">
+            
+
+<div class="work_nav">
+
+    <ul class="btn clearfix">
+        
+        <li><a href="/2016/09/07/PokerKeyBoard/" class="previous" data-title="Poker 折腾记"></a></li>
+        
+        <li><a href="/" class="grid" data-title="Portfolio"></a></li>
+        
+        <li><a href="/2016/07/15/MacFiddlerWillow/" class="next" data-title="Mac、Fiddler、Willo..."></a></li>
+        
+    </ul>
+
+</div><!-- end work_nav -->
+            <h1 class="title">JavaScript函数式编程初窥</h1>
+        </div>
+    </section><!-- end top -->
+
+    <section class="wrapper">
+        <div class="content">
+
+            <!-- Gallery -->
+            
+
+            <!-- Content -->
+            <p>初次想去好好学一下函数式编程是有一次回西安，正好去听了<a href="https://github.com/jcouyang" target="_blank" rel="external">欧阳继超</a>的分享，被 monad 搞得云里雾里的，于是回来后准备好好的学习一下。</p>
+<h1 id="函数是一等公民"><a href="#函数是一等公民" class="headerlink" title="函数是一等公民"></a>函数是一等公民</h1><ul>
+<li>函数可作为参数</li>
+<li>函数可作为返回值</li>
+</ul>
+<h1 id="柯里化（curry）"><a href="#柯里化（curry）" class="headerlink" title="柯里化（curry）"></a>柯里化（curry）</h1><p>我们把一个多参的函数变成一次只能接受一个参数的函数的过程叫做柯里化。只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const add = x =&gt; y =&gt; x + y</span><br></pre></td></tr></table></figure>
+<p>用es5的写法如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var add = function (x) &#123;</span><br><span class="line">    return function (y) &#123;</span><br><span class="line">        return x + y;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">var increment = add(1);</span><br><span class="line">var addTen = add(10);</span><br><span class="line">increment(2)            //3</span><br><span class="line">addTen(2)               //12</span><br></pre></td></tr></table></figure>
+<p>可以用 <a href="http://ramdajs.com/0.22.1/index.html" target="_blank" rel="external">Rmada.js</a> 或者 <a href="https://github.com/lodash-archive/lodash-fp" target="_blank" rel="external">loadash-fp</a> 来处理柯里化 </p>
+<h1 id="thunk（槽）"><a href="#thunk（槽）" class="headerlink" title="thunk（槽）"></a>thunk（槽）</h1><p>thunk（槽）是指有一些操作不被立即执行，也就是说准备好一个函数，但是不执行，默默等待着合适的时候被合适的人调用。（惰性求值）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function f (m) &#123;</span><br><span class="line">    return m * 2;</span><br><span class="line">&#125;</span><br><span class="line">f(x + 5);   </span><br><span class="line">// 传值调用</span><br><span class="line"></span><br><span class="line">var thunk = function (x) &#123;</span><br><span class="line">    return x + 5;</span><br><span class="line">&#125;;</span><br><span class="line">function f (x) &#123;</span><br><span class="line">    return thunk(x) * 2;</span><br><span class="line">&#125;</span><br><span class="line">f(x);          </span><br><span class="line">//传名调用</span><br></pre></td></tr></table></figure>
+<p>常用 <a href="https://github.com/tj/node-thunkify" target="_blank" rel="external">thunkify</a> 来直接生成 thunk 函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// thunk函数</span><br><span class="line">function readFile (path, encoding) &#123;</span><br><span class="line">    return function (cb) &#123;</span><br><span class="line">        fs.readFile(path, encoding, cb);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// thunkify</span><br><span class="line">var readFile = thunkify(fs.readFile);</span><br></pre></td></tr></table></figure>
+<p>例如使用 co 来同步调用 readFile：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var co = require(&apos;co&apos;), fs = require(&apos;fs&apos;), Promise = require(&apos;es6-promise&apos;).Promise;</span><br><span class="line">function readFile (path, encoding) &#123;</span><br><span class="line">    return function (cb) &#123;</span><br><span class="line">        fs.readFile(path, encoding, cb);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">co(function* () &#123;</span><br><span class="line">    var a = yield readFile(&apos;a.txt&apos;, &#123;encoding: &apos;utf8&apos;&#125;);</span><br><span class="line">    console.log(a); // a</span><br><span class="line">    var b = yield readFile(&apos;b.txt&apos;, &#123;encoding: &apos;utf8&apos;&#125;);</span><br><span class="line">    console.log(b); // b</span><br><span class="line">    var c = yield readFile(&apos;c.txt&apos;, &#123;encoding: &apos;utf8&apos;&#125;);</span><br><span class="line">    console.log(c); // c</span><br><span class="line">    return yield Promise.resolve(a + b + c);</span><br><span class="line">&#125;).then(function (val) &#123;</span><br><span class="line">    console.log(val); // abc</span><br><span class="line">&#125;).catch(function (error) &#123;</span><br><span class="line">    console.log(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="函数组合（compose）"><a href="#函数组合（compose）" class="headerlink" title="函数组合（compose）"></a>函数组合（compose）</h1><p>f 和 g 都是函数，x 是在它们之间通过“管道”传输的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var compose = function (f, g) &#123;</span><br><span class="line">    return function (x) &#123;</span><br><span class="line">        return f(g(x));</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">var toUpperCase = function (x) &#123;</span><br><span class="line">    return x.toUpperCase();</span><br><span class="line">&#125;;</span><br><span class="line">var exclaim = function (x) &#123;</span><br><span class="line">    return x + &apos;!&apos;;</span><br><span class="line">&#125;;</span><br><span class="line">var shout = compose(exclaim, toUpperCase);</span><br><span class="line">shout(&quot;send in the clowns&quot;);</span><br><span class="line">// &quot;SEND IN THE CLOWNS!&quot;</span><br></pre></td></tr></table></figure>
+
+            <!-- Tags -->
+            
+
+
+<div class="tags">
+    <a href="/tags/functional-programing-javascript/">functional programing javascript</a>
+</div>
+
+
+
+            <!-- Comments -->
+            <div>
+                
+    <hr />
+    <h3>Kommentare:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+            </div>
+        </div><!-- end content -->
+    </section>
+</section><!-- end main -->
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="/js/jquery.js"></script>
+
+<!-- Custom Code -->
+<script src="/js/main.js"></script>
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'readytofly';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+
+    setTimeout(function () {
+        $('.main .work .media').each(function (i, item) {
+            $(item).css({'transform': 'rotate(' + (parseInt(Math.random() * 10) - 5) + 'deg)'});
+        })
+    }, 200)
+</script>
+
+
+</body>
+
+</html>
